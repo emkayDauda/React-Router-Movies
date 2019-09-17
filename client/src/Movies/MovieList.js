@@ -5,6 +5,8 @@ import MovieCard from './MovieCard'
 import { Link } from 'react-router-dom'
 
 const MovieList = props => {
+  // console.log(props.onTap);
+  
   const [movies, setMovies] = useState([])
   useEffect(() => {
     const getMovies = () => {
@@ -25,7 +27,7 @@ const MovieList = props => {
     <div className="movie-list">
       {movies.map(movie => (
         <Link key={movie.id} to={`/movies/${movie.id}`}>
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} addToSavedList={props.addToSavedList} />
         </Link>
       ))}
     </div>
